@@ -1,0 +1,33 @@
+<video 
+  *ngIf="!screenVisible"
+  #introVideo 
+  class="screen"
+  autoplay 
+  muted 
+  playsinline
+  (ended)="showScreen()">
+  <source src="musics/intro-video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<div class="screen" *ngIf="screenVisible">
+  
+  <div #fireworksContainer class="fireworks"></div>
+
+  <h1>Wishing you a peaceful New Year</h1>
+
+  <p class="message">
+    May this new year bring you calm days, strength when things feel heavy,
+    and warmth in the moments that truly matter.<br /><br />
+    This is not a promise or an expectation — just a sincere wish from my heart. <br><br>
+    With respect and care.
+  </p>
+
+  <audio #audioPlayer src="musics/Young And Beautiful.mp3"></audio>
+  <button *ngIf="!isPlaying" (click)="playMusic(audioPlayer)">Play Music</button>
+  <button *ngIf="isPlaying" (click)="stopMusic(audioPlayer)">Stop Music</button>
+</div>
+<div class="footer">
+  <p>@ Created by jon</p>
+</div>
